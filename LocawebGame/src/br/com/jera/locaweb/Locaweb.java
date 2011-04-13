@@ -14,7 +14,7 @@ public class Locaweb extends TDActivity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		
+
 		int tilemapSizeX = 14;
 		int tilemapSizeY = 14;
 		Vector2 tileSize = new Vector2(64, 64).multiply(Sprite.getGlobalSpriteScale());
@@ -50,7 +50,6 @@ public class Locaweb extends TDActivity {
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 		};
-		
 		startGame(new LWResourceIdRetriever(), tilemapSizeX, tilemapSizeY, tileSize, mainLayer, pathLayer);
     }
 }
