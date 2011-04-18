@@ -5,7 +5,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import br.com.jera.graphic.Sprite;
 import br.com.jera.towerdefenselib.TDActivity;
+import br.com.jera.towers.TowerProfile;
 import br.com.jera.util.CommonMath.Vector2;
+import br.com.jera.weapons.Axe;
+import br.com.jera.weapons.Net;
+import br.com.jera.weapons.Spear;
+import br.com.jera.weapons.WeaponProfile;
 
 public class Locaweb extends TDActivity {
 
@@ -22,15 +27,15 @@ public class Locaweb extends TDActivity {
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
+				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 		};
@@ -50,6 +55,37 @@ public class Locaweb extends TDActivity {
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 		};
-		startGame(new LWResourceIdRetriever(), tilemapSizeX, tilemapSizeY, tileSize, mainLayer, pathLayer);
+
+		final LWResourceIdRetriever resRet = new LWResourceIdRetriever();
+		TowerProfile[] towerProfiles = new TowerProfile[3];
+		towerProfiles[0] = new TowerProfile() {
+			public int getResourceId() {
+				return resRet.getBmpTower01();
+			}
+			public WeaponProfile getWeapon() {
+				return weapon;
+			}
+			private WeaponProfile weapon = new Spear(resRet);
+		};
+		towerProfiles[1] = new TowerProfile() {
+			public int getResourceId() {
+				return resRet.getBmpTower02();
+			}
+			public WeaponProfile getWeapon() {
+				return weapon;
+			}
+			private WeaponProfile weapon = new Net(resRet);
+		};
+		towerProfiles[2] = new TowerProfile() {
+			public int getResourceId() {
+				return resRet.getBmpTower03();
+			}
+			public WeaponProfile getWeapon() {
+				return weapon;
+			}
+			private WeaponProfile weapon = new Axe(resRet);
+		};
+
+		startGame(resRet, tilemapSizeX, tilemapSizeY, tileSize, mainLayer, pathLayer, towerProfiles);
     }
 }

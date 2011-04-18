@@ -101,7 +101,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpScenarioSeam() {
-		return R.drawable.ice;
+		return R.drawable.cloudsbg;
 	}
 
 	public int getBmpMoneySymbol() {
@@ -161,7 +161,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpMenuBackground() {
-		return R.drawable.ice;
+		return R.drawable.cloudsbg;
 	}
 
 	public int getBmpMenuLogo() {
