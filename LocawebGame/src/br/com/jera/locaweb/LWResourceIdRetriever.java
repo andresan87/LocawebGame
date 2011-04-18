@@ -65,7 +65,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpThemeFont16() {
-		return R.drawable.viking16;
+		return R.drawable.mono24;
 	}
 
 	public int getBmpShadow() {
