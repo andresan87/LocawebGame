@@ -13,31 +13,31 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpTower01() {
-		return R.drawable.viking01;
+		return R.drawable.tower01;
 	}
 
 	public int getBmpTower02() {
-		return R.drawable.viking02;
+		return R.drawable.tower02;
 	}
 
 	public int getBmpTower03() {
-		return R.drawable.viking03;
+		return R.drawable.tower03;
 	}
 
 	public int getBmpEnemy01() {
-		return R.drawable.zombie01;
+		return R.drawable.virus01;
 	}
 
 	public int getBmpEnemy02() {
-		return R.drawable.zombie02;
+		return R.drawable.virus02;
 	}
 
 	public int getBmpEnemy03() {
-		return R.drawable.zombie03;
+		return R.drawable.virus03;
 	}
 
 	public int getBmpEnemy04() {
-		return R.drawable.zombie04;
+		return R.drawable.virus04;
 	}
 
 	public int getBmpTiles() {
