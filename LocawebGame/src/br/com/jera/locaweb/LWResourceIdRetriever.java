@@ -199,4 +199,28 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	public int getBmpNextWaveButton() {
 		return R.drawable.next_wave_button;
 	}
+
+	public int getBmpNextFrameButton() {
+		return R.drawable.next_page;
+	}
+
+	public int getBmpSkipTutorialButton() {
+		return R.drawable.skip_tutorial;
+	}
+
+	public int getBmpHelpFrame(int frame) {
+		switch (frame) {
+		case 0:
+			return R.drawable.help01;
+		case 1:
+			return R.drawable.help02;
+		case 2:
+		default:
+			return R.drawable.help03;
+		}
+	}
+
+	public int getNumHelpFrames() {
+		return 3;
+	}
 }
