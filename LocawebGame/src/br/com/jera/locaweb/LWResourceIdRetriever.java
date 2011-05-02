@@ -49,7 +49,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getSfxEnemyDeath() {
-		return R.raw.zombie_death;
+		return R.raw.virus_morto;
 	}
 
 	public int getBmpNextWaveSymbol() {
@@ -121,27 +121,27 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getSfxGameOver() {
-		return R.raw.gameover;
+		return R.raw.perdeu2;
 	}
 
 	public int getSfxWeaponTrigger01() {
-		return R.raw.spear;
+		return R.raw.servidor_raio;
 	}
 
 	public int getSfxWeaponTrigger03() {
-		return R.raw.axe;
+		return R.raw.firewall_fogo;
 	}
 
 	public int getSfxWeaponHit01() {
-		return R.raw.spear_hit;
+		return R.raw.raio_impacto;
 	}
 
 	public int getSfxWeaponHit03() {
-		return R.raw.axe_hit;
+		return R.raw.fogo_impacto;
 	}
 
 	public int getSfxBack() {
-		return R.raw.back;
+		return R.raw.selecionar;
 	}
 
 	public int getBmpGameOver() {
@@ -181,7 +181,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getSfxMenuButtonPressed() {
-		return R.raw.spear_hit;
+		return R.raw.mudar_selecao;
 	}
 
 	public int getBmpSideBar() {
@@ -222,5 +222,9 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 
 	public int getNumHelpFrames() {
 		return 3;
+	}
+
+	public int getSfxMenuSong() {
+		return R.raw.menu_musica;
 	}
 }

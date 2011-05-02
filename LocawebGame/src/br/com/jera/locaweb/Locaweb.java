@@ -1,9 +1,13 @@
 package br.com.jera.locaweb;
 
+import android.app.Activity;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import br.com.jera.audio.AudioPlayer;
 import br.com.jera.graphic.Sprite;
+import br.com.jera.platform.android.JGRunnable;
 import br.com.jera.towerdefenselib.TDActivity;
 import br.com.jera.towers.TowerProfile;
 import br.com.jera.util.CommonMath.Vector2;
@@ -14,6 +18,8 @@ import br.com.jera.weapons.WeaponProfile;
 
 public class Locaweb extends TDActivity {
 
+	private static MediaPlayer mPlayer; 
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,6 +92,37 @@ public class Locaweb extends TDActivity {
 			private WeaponProfile weapon = new Axe(resRet);
 		};
 
-		startGame(resRet, tilemapSizeX, tilemapSizeY, tileSize, mainLayer, pathLayer, towerProfiles);
+		mPlayer = MediaPlayer.create(this, resRet.getSfxMenuSong());
+
+		JGRunnable runnable = new JGRunnable() {
+
+			public void run(final String status, Activity activity, final AudioPlayer audioPlayer) {
+				activity.runOnUiThread(new Runnable() {
+
+					public void run() {
+						if (mPlayer != null && audioPlayer != null) {
+							mPlayer.setVolume(audioPlayer.getGlobalVolume(), audioPlayer.getGlobalVolume());
+							if (status.equals("mainMenu")) {
+								if (!mPlayer.isPlaying()) {
+									mPlayer.start();
+								}
+							} else {
+								//mPlayer.stop();
+								mPlayer.pause();
+								//mPlayer.seekTo(0);
+							}
+						}
+					}
+				});
+			}
+		};
+		startGame(resRet, tilemapSizeX, tilemapSizeY, tileSize, mainLayer, pathLayer, towerProfiles, runnable );
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+		if (mPlayer != null)
+			mPlayer.stop();
     }
 }
