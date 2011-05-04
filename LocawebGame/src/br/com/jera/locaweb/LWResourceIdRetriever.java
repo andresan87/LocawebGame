@@ -93,7 +93,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpWeaponHitEffect02() {
-		return R.drawable.net_trap;
+		return R.drawable.snap_frame;
 	}
 
 	public int getBmpWeaponHitEffect03() {
@@ -226,5 +226,29 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 
 	public int getSfxMenuSong() {
 		return R.raw.menu_musica;
+	}
+
+	public int getSfxWeaponTrigger02() {
+		return R.raw.snapbot_foto;
+	}
+
+	public int getSfxWeaponHit02() {
+		return R.raw.snapbot_foto;
+	}
+
+	public int getBmpSnapshotFX() {
+		return R.drawable.snapshotfx;
+	}
+
+	public int getSfxTowerDrag() {
+		return R.raw.selecionar;
+	}
+
+	public int getSfxTowerDrop() {
+		return R.raw.mudar_selecao;
+	}
+
+	public int getBmpClockHelpCharacter() {
+		return R.drawable.programador;
 	}
 }

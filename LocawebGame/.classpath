@@ -7,5 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/TowerDefenseLib"/>
 	<classpathentry kind="src" path="TowerDefenseLib_src"/>
 	<classpathentry kind="src" path="jeraGame_src"/>
+	<classpathentry kind="lib" path="lib/acra-3.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

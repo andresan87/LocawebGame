@@ -12,7 +12,7 @@ import br.com.jera.towerdefenselib.TDActivity;
 import br.com.jera.towers.TowerProfile;
 import br.com.jera.util.CommonMath.Vector2;
 import br.com.jera.weapons.Axe;
-import br.com.jera.weapons.Net;
+import br.com.jera.weapons.Snapshot;
 import br.com.jera.weapons.Spear;
 import br.com.jera.weapons.WeaponProfile;
 
@@ -80,7 +80,7 @@ public class Locaweb extends TDActivity {
 			public WeaponProfile getWeapon() {
 				return weapon;
 			}
-			private WeaponProfile weapon = new Net(resRet);
+			private WeaponProfile weapon = new Snapshot(resRet);
 		};
 		towerProfiles[2] = new TowerProfile() {
 			public int getResourceId() {
