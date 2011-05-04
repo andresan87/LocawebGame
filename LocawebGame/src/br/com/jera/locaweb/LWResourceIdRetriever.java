@@ -85,7 +85,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpWeaponProjectile03() {
-		return R.drawable.axe;
+		return R.drawable.fireball;
 	}
 
 	public int getBmpWeaponHitEffect01() {
@@ -97,7 +97,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpWeaponHitEffect03() {
-		return R.drawable.axe_blood;
+		return R.drawable.fire_anim;
 	}
 
 	public int getBmpScenarioSeam() {
@@ -250,5 +250,13 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 
 	public int getBmpClockHelpCharacter() {
 		return R.drawable.programador;
+	}
+
+	public int getBmpClockHelpBalloon() {
+		return R.drawable.clock_helper_balloon;
+	}
+
+	public int getBmpClockHelpTexts() {
+		return R.drawable.clock_helper_texts;
 	}
 }
