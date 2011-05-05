@@ -81,7 +81,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpWeaponProjectile02() {
-		return R.drawable.net;
+		return R.drawable.snap_flash;
 	}
 
 	public int getBmpWeaponProjectile03() {
@@ -89,7 +89,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpWeaponHitEffect01() {
-		return R.drawable.spear_blood;
+		return R.drawable.shock_animation;
 	}
 
 	public int getBmpWeaponHitEffect02() {
@@ -258,5 +258,25 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 
 	public int getBmpClockHelpTexts() {
 		return R.drawable.clock_helper_texts;
+	}
+
+	public int getSfxNextLevel() {
+		return R.raw.passou_fase;
+	}
+
+	public int getSfxVirusAppear01() {
+		return R.raw.virus_azul_e_verde;
+	}
+
+	public int getSfxVirusAppear02() {
+		return R.raw.virus_amarelo;
+	}
+
+	public int getBmpGameWon() {
+		return R.drawable.gamewon;
+	}
+
+	public int getSfxGameWon() {
+		return R.raw.venceu_musica;
 	}
 }
