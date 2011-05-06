@@ -120,8 +120,15 @@ public class Locaweb extends TDActivity {
     }
     
     @Override
+    protected void onPause() {
+    	super.onPause();
+		if (mPlayer != null)
+			mPlayer.pause();
+    }
+
+    @Override
     protected void onDestroy() {
-    	super.onDestroy();
+    	super.onPause();
 		if (mPlayer != null)
 			mPlayer.stop();
     }

@@ -101,7 +101,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpScenarioSeam() {
-		return R.drawable.cloudsbg;
+		return R.drawable.mapback;
 	}
 
 	public int getBmpMoneySymbol() {
@@ -117,7 +117,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpBehaveButtons() {
-		return R.drawable.behave_buttons;
+		return R.drawable.white;
 	}
 
 	public int getSfxGameOver() {
@@ -193,7 +193,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpSideBarBottom() {
-		return R.drawable.bottom;
+		return R.drawable.white;
 	}
 
 	public int getBmpNextWaveButton() {
@@ -241,11 +241,11 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getSfxTowerDrag() {
-		return R.raw.selecionar;
+		return R.raw.mudar_selecao;
 	}
 
 	public int getSfxTowerDrop() {
-		return R.raw.mudar_selecao;
+		return R.raw.selecionar;
 	}
 
 	public int getBmpClockHelpCharacter() {
