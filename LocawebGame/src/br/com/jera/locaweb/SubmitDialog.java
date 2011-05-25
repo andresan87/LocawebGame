@@ -119,7 +119,7 @@ public class SubmitDialog extends Dialog {
 	}
 	
 	protected static String generateCode(String name, String score) {
-		String code = new String(name) + "_" + score + "_1462172";
+		String code = JNIImport.getc(name, score);
 		return StringEncrypter.encodeSHA(code);
 	}
 
@@ -139,9 +139,9 @@ public class SubmitDialog extends Dialog {
 			nameValuePairs.add(new BasicNameValuePair("twitter", twitterAccount ? "1" : "0"));
 			nameValuePairs.add(new BasicNameValuePair("version", version));
 			
-			String codeFuck = generateCode(name, points);
+			String code = generateCode(name, points);
 			
-			nameValuePairs.add(new BasicNameValuePair("ticket", codeFuck));
+			nameValuePairs.add(new BasicNameValuePair("ticket", code));
 			post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 			HttpResponse response = client.execute(post);

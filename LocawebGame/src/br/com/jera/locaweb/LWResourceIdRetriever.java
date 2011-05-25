@@ -69,7 +69,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpShadow() {
-		return R.drawable.shadow;
+		return R.drawable.white;
 	}
 
 	public int getBmpRange() {
@@ -149,7 +149,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpForwarButton() {
-		return R.drawable.forward_arrow;
+		return R.drawable.white;
 	}
 
 	public int getBmpDefaultFont16() {
@@ -215,13 +215,15 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 		case 1:
 			return R.drawable.help02;
 		case 2:
-		default:
 			return R.drawable.help03;
+		case 3:
+		default:
+			return R.drawable.help04;
 		}
 	}
 
 	public int getNumHelpFrames() {
-		return 3;
+		return 4;
 	}
 
 	public int getSfxMenuSong() {

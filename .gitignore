@@ -11,6 +11,13 @@
 # generated GUI files
 *R.java
 
+# c binaries
+*.so
+*.o
+*.a
+*.d
+/obj
+
 data.properties
 data.cpp
 
