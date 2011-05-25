@@ -53,11 +53,11 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpNextWaveSymbol() {
-		return R.drawable.next_wave_symbol;
+		return R.drawable.ico_clock;
 	}
 
 	public int getBmpScoreSymbol() {
-		return R.drawable.kills;
+		return R.drawable.ico_skull;
 	}
 
 	public int getBmpScenario() {
@@ -105,11 +105,11 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpMoneySymbol() {
-		return R.drawable.money;
+		return R.drawable.ico_money;
 	}
 
 	public int getBmpTowerSymbol() {
-		return R.drawable.viking_symbol;
+		return R.drawable.ico_skull;
 	}
 
 	public int getBmpBackButton() {
@@ -193,7 +193,7 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 	}
 
 	public int getBmpSideBarBottom() {
-		return R.drawable.white;
+		return R.drawable.bottom;
 	}
 
 	public int getBmpNextWaveButton() {
@@ -278,5 +278,17 @@ public class LWResourceIdRetriever implements ResourceIdRetriever {
 
 	public int getSfxGameWon() {
 		return R.raw.venceu_musica;
+	}
+
+	public int getBmpTwitterButton() {
+		return R.drawable.twitter_larger;
+	}
+
+	public int getBmpFacebookButton() {
+		return R.drawable.facebook_larger;
+	}
+
+	public int getBmpClockSymbol() {
+		return R.drawable.ico_clock;
 	}
 }

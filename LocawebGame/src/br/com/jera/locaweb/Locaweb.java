@@ -1,11 +1,13 @@
 package br.com.jera.locaweb;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import br.com.jera.audio.AudioPlayer;
+import br.com.jera.game.GameOver;
 import br.com.jera.graphic.Sprite;
 import br.com.jera.platform.android.JGRunnable;
 import br.com.jera.towerdefenselib.TDActivity;
@@ -35,9 +37,9 @@ public class Locaweb extends TDActivity {
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
-				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
+				-1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,  1,  1,  1,
+				-1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,  1,  1,  1,
+				-1, -1, -1, -1, -1, -1, -1, -1, -1,  1, -1,  1,  1,  1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  1,  1,
@@ -107,9 +109,7 @@ public class Locaweb extends TDActivity {
 									mPlayer.start();
 								}
 							} else {
-								//mPlayer.stop();
 								mPlayer.pause();
-								//mPlayer.seekTo(0);
 							}
 						}
 					}
@@ -132,4 +132,29 @@ public class Locaweb extends TDActivity {
 		if (mPlayer != null)
 			mPlayer.stop();
     }
+
+	protected void onPrepareDialog(int id, Dialog dialog, Bundle args) {
+		switch (id) {
+		case GameOver.SUBMIT_SCORE:
+			dialog.setTitle(new Integer(GameOver.score).toString() + " " + getResources().getString(R.string.submit_title));
+			if (dialog instanceof SubmitDialog) {
+				((SubmitDialog) dialog).updateScore(GameOver.score, GameOver.gameWon, 0, this);
+			}
+			break;
+		default:
+			dialog = null;
+		}
+	}
+	
+	protected Dialog onCreateDialog(int id) {
+		final Dialog dialog;
+		switch (id) {
+		case GameOver.SUBMIT_SCORE:
+			dialog = new SubmitDialog(this, GameOver.score, 0, getVersion(), GameOver.gameWon);
+			break;
+		default:
+			dialog = null;
+		}
+		return dialog;
+	}
 }
