@@ -86,7 +86,7 @@ public class SubmitDialog extends Dialog {
 		TextView textView = (TextView) findViewById(R.id.send_score_text);
 		textView.setText((gameWon) ? R.string.game_won : R.string.game_lost);
 		Pattern pattern = Pattern.compile("Cloud Server Pro");
-		String scheme = PropertyReader.getOfficialSiteUrl();
+		String scheme = PropertyReader.getOfficialSiteUrl() + "#";
 		Linkify.addLinks(textView, pattern, scheme);
 
 	}
