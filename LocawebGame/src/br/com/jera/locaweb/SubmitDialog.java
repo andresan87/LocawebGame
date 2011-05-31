@@ -29,7 +29,7 @@ import br.com.jera.towerdefenselib.StringEncrypter;
 import br.com.jera.towerdefenselib.TDActivity;
 
 public class SubmitDialog extends Dialog {
-	
+
 	private class SubmitOnClickListener implements View.OnClickListener {
 
 		public SubmitOnClickListener(int score, int mapId, Activity context) {
@@ -37,14 +37,14 @@ public class SubmitDialog extends Dialog {
 			this.mapId = mapId;
 			this.context = context;
 		}
-		
+
 		public void onClick(View v) {
 			boolean scoreSent = false;
 			if (System.currentTimeMillis() - scoreSendTime > 5000) {
 				EditText text = (EditText) findViewById(R.id.submitName);
 				CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox1);
-				
-				String name = text.getText().toString(); 
+
+				String name = text.getText().toString();
 				if (name != "" && name.length() > 1) {
 					scoreSent = sendScore(name, new Integer(score).toString(), new Integer(mapId).toString(), checkBox.isChecked(), context);
 				} else {
@@ -60,7 +60,7 @@ public class SubmitDialog extends Dialog {
 		private int mapId;
 		private Activity context;
 	}
-	
+
 	public void updateScore(int score, boolean gameWon, int mapId, Activity context) {
 		Button button = (Button) findViewById(R.id.sendButton);
 		button.setOnClickListener(new SubmitOnClickListener(score, mapId, context));
@@ -72,7 +72,6 @@ public class SubmitDialog extends Dialog {
 		SubmitDialog.setVersion(version);
 
 		setContentView(R.layout.submit);
-		setupButtonActions(context);
 
 		updateScore(score, gameWon, mapId, context);
 		Button button = (Button) findViewById(R.id.cancelButton);
@@ -86,38 +85,12 @@ public class SubmitDialog extends Dialog {
 	private void manageText(Activity context, boolean gameWon) {
 		TextView textView = (TextView) findViewById(R.id.send_score_text);
 		textView.setText((gameWon) ? R.string.game_won : R.string.game_lost);
-		// Linkify.addLinks(textView, Linkify.WEB_URLS);
 		Pattern pattern = Pattern.compile("Cloud Server Pro");
 		String scheme = PropertyReader.getOfficialSiteUrl();
 		Linkify.addLinks(textView, pattern, scheme);
 
 	}
-	
-	private void setupButtonActions(final Activity context) {
-		//View view;
-		/*view = findViewById(R.id.locaweb_button);
-		view.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(PropertyReader.getOfficialSiteUrl()));
-				context.startActivity(intent);
-			}
-		});*/
-		/*view = findViewById(R.id.facebook_button);
-		view.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(PropertyReader.getFacebookUrl()));
-				context.startActivity(intent);
-			}
-		});
-		view = findViewById(R.id.twitter_button);
-		view.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(PropertyReader.getTwitterUrl()));
-				context.startActivity(intent);
-			}
-		});*/
-	}
-	
+
 	protected static String generateCode(String name, String score) {
 		String code = JNIImport.getc(name, score);
 		return StringEncrypter.encodeSHA(code);
@@ -131,32 +104,40 @@ public class SubmitDialog extends Dialog {
 		client.getCredentialsProvider().setCredentials(new AuthScope(AuthScope.ANY_HOST, AuthScope.ANY_PORT), creds);
 
 		try {
-			HttpPost post = new HttpPost(JNIImport.getu());
+			String u = JNIImport.getu();
+			HttpPost post = new HttpPost(u);
 
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("score", points));
 			nameValuePairs.add(new BasicNameValuePair("name", name));
 			nameValuePairs.add(new BasicNameValuePair("twitter", twitterAccount ? "1" : "0"));
 			nameValuePairs.add(new BasicNameValuePair("version", version));
-			
+
 			String code = generateCode(name, points);
-			
+
 			nameValuePairs.add(new BasicNameValuePair("ticket", code));
 			post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 			HttpResponse response = client.execute(post);
 			final int statusCode = response.getStatusLine().getStatusCode();
 			if (statusCode != HttpStatus.SC_OK) {
-				throw new Exception();
+				throw new PostException(statusCode);
 			}
 			TDActivity.toast(R.string.submit_success, context);
+		} catch (PostException e) {
+			if (e.getStatusCode() == HttpStatus.SC_NOT_FOUND) {
+				TDActivity.toast(R.string.not_found, context);
+			} else {
+				TDActivity.toast(R.string.submit_fail, context);
+			}
+			return false;
 		} catch (Exception e) {
 			TDActivity.toast(R.string.submit_fail, context);
 			return false;
 		}
 		return true;
 	}
-	
+
 	public static void setVersion(String version) {
 		SubmitDialog.version = version;
 	}

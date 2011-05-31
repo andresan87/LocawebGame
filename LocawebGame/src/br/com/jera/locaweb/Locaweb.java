@@ -21,6 +21,7 @@ import br.com.jera.weapons.WeaponProfile;
 public class Locaweb extends TDActivity {
 
 	private static MediaPlayer mPlayer; 
+	private final LWResourceIdRetriever resRet = new LWResourceIdRetriever();
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,6 @@ public class Locaweb extends TDActivity {
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
 				-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 		};
-
-		final LWResourceIdRetriever resRet = new LWResourceIdRetriever();
 		TowerProfile[] towerProfiles = new TowerProfile[3];
 		towerProfiles[0] = new TowerProfile() {
 			public int getResourceId() {
@@ -94,8 +93,6 @@ public class Locaweb extends TDActivity {
 			private WeaponProfile weapon = new Axe(resRet);
 		};
 
-		mPlayer = MediaPlayer.create(this, resRet.getSfxMenuSong());
-
 		JGRunnable runnable = new JGRunnable() {
 
 			public void run(final String status, Activity activity, final AudioPlayer audioPlayer) {
@@ -107,6 +104,7 @@ public class Locaweb extends TDActivity {
 							if (status.equals("mainMenu")) {
 								if (!mPlayer.isPlaying()) {
 									mPlayer.start();
+									mPlayer.setLooping(true);
 								}
 							} else {
 								mPlayer.pause();
@@ -120,10 +118,16 @@ public class Locaweb extends TDActivity {
     }
     
     @Override
+    protected void onResume() {
+    	super.onResume();
+		mPlayer = MediaPlayer.create(this, resRet.getSfxMenuSong());
+    }
+
+    @Override
     protected void onPause() {
     	super.onPause();
 		if (mPlayer != null)
-			mPlayer.pause();
+			mPlayer.stop();
     }
 
     @Override
