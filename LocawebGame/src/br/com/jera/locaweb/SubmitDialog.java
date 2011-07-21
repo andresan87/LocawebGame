@@ -27,6 +27,7 @@ import br.com.jera.jni.JNIImport;
 import br.com.jera.resources.PropertyReader;
 import br.com.jera.towerdefenselib.StringEncrypter;
 import br.com.jera.towerdefenselib.TDActivity;
+import br.com.jeramobstats.JeraAgent;
 
 public class SubmitDialog extends Dialog {
 
@@ -40,6 +41,7 @@ public class SubmitDialog extends Dialog {
 
 		public void onClick(View v) {
 			boolean scoreSent = false;
+			JeraAgent.logEvent("SUBMIT_SCORE_CLICKED");
 			if (System.currentTimeMillis() - scoreSendTime > 5000) {
 				EditText text = (EditText) findViewById(R.id.submitName);
 				CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox1);
@@ -48,12 +50,15 @@ public class SubmitDialog extends Dialog {
 				if (name != "" && name.length() > 1) {
 					scoreSent = sendScore(name, new Integer(score).toString(), new Integer(mapId).toString(), checkBox.isChecked(), context);
 				} else {
+					JeraAgent.logEvent("SUBMIT_SCORE_INVALID_NAME");
 					TDActivity.toast(R.string.valid_name, context);
 				}
 				scoreSendTime = System.currentTimeMillis();
 			}
 			if (scoreSent)
 				dismiss();
+			else
+				JeraAgent.logEvent("SUBMIT_SCORE_FAILED");
 		}
 
 		private int score;
@@ -77,6 +82,7 @@ public class SubmitDialog extends Dialog {
 		Button button = (Button) findViewById(R.id.cancelButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				JeraAgent.logEvent("SUBMIT_SCORE_CANCELLED");
 				dismiss();
 			}
 		});

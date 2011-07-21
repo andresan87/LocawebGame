@@ -5,8 +5,10 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jeraGame"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/TowerDefenseLib"/>
+	<classpathentry kind="lib" path="lib/acra-3.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/FlurryAgent.jar"/>
+	<classpathentry kind="lib" path="lib/jeraMobStats.jar"/>
 	<classpathentry kind="src" path="TowerDefenseLib_src"/>
 	<classpathentry kind="src" path="jeraGame_src"/>
-	<classpathentry kind="lib" path="lib/acra-3.1.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
