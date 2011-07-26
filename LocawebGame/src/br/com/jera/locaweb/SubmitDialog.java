@@ -20,7 +20,6 @@ import android.app.Dialog;
 import android.text.util.Linkify;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import br.com.jera.jni.JNIImport;
@@ -44,11 +43,10 @@ public class SubmitDialog extends Dialog {
 			JeraAgent.logEvent("SUBMIT_SCORE_CLICKED");
 			if (System.currentTimeMillis() - scoreSendTime > 5000) {
 				EditText text = (EditText) findViewById(R.id.submitName);
-				CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox1);
 
 				String name = text.getText().toString();
 				if (name != "" && name.length() > 1) {
-					scoreSent = sendScore(name, new Integer(score).toString(), new Integer(mapId).toString(), checkBox.isChecked(), context);
+					scoreSent = sendScore(name, new Integer(score).toString(), new Integer(mapId).toString(), context);
 				} else {
 					JeraAgent.logEvent("SUBMIT_SCORE_INVALID_NAME");
 					TDActivity.toast(R.string.valid_name, context);
@@ -102,7 +100,7 @@ public class SubmitDialog extends Dialog {
 		return StringEncrypter.encodeSHA(code);
 	}
 
-	private static boolean sendScore(String name, String points, String mapId, boolean twitterAccount, Activity context) {
+	private static boolean sendScore(String name, String points, String mapId, Activity context) {
 		DefaultHttpClient client = new DefaultHttpClient();
 		String l = JNIImport.getl();
 		String p = JNIImport.getp();
@@ -116,7 +114,6 @@ public class SubmitDialog extends Dialog {
 			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 			nameValuePairs.add(new BasicNameValuePair("score", points));
 			nameValuePairs.add(new BasicNameValuePair("name", name));
-			nameValuePairs.add(new BasicNameValuePair("twitter", twitterAccount ? "1" : "0"));
 			nameValuePairs.add(new BasicNameValuePair("version", version));
 
 			String code = generateCode(name, points);

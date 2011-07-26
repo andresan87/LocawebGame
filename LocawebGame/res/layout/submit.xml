@@ -11,24 +11,6 @@
 		android:orientation="horizontal"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content">
-		<!-- <ImageButton
-			android:id="@+id/locaweb_button"
-			android:layout_gravity="center_vertical"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/locaweb_icon" /> -->
-		<!-- <ImageButton
-			android:id="@+id/twitter_button"
-			android:layout_gravity="center_vertical"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/twitter" />
-		<ImageButton
-			android:id="@+id/facebook_button"
-			android:layout_gravity="center_vertical"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/facebook" /> -->
     	<TextView
     		android:id="@+id/send_score_text"
     		android:text="@string/send_score"
@@ -41,12 +23,6 @@
    		android:id="@+id/submitName"
      	android:layout_width="fill_parent"
      	android:layout_height="wrap_content"/>
-    <CheckBox
-    	android:text="@string/twitter_account"
-    	android:id="@+id/checkBox1"
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:checked="true"/>
 	
 	<LinearLayout
 		android:orientation="horizontal"

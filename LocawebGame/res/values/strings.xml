@@ -5,7 +5,7 @@
 	<string name="send_score"> Envie sua pontuação!</string>
 	<string name="game_won">Parabéns, sua empresa está segura! Conheça outras ferramentas do Cloud Server Pro da Locaweb! Não se esqueça de enviar sua pontuação!</string>
 	<string name="game_lost">Sua empresa foi invadida! Aproveite melhor os recursos do Cloud Server Pro para garantir segurança para suas aplicações.</string>
-	<string name="submit_hint">Nome completo ou conta no Twitter</string>
+	<string name="submit_hint">Nome completo</string>
 	<string name="send">Enviar</string>
 	<string name="cancel">Cancelar</string>
 	<string name="game_over">Quantidade de vírus eliminados: </string>
