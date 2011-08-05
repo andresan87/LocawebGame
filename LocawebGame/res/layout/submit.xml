@@ -21,6 +21,7 @@
      <EditText
      	android:hint="@string/submit_hint"
    		android:id="@+id/submitName"
+   		android:maxLength="20"
      	android:layout_width="fill_parent"
      	android:layout_height="wrap_content"/>
 	

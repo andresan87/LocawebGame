@@ -3,9 +3,9 @@
 	<string name="app_name">Locaweb Cloud Defense</string>
 	<string name="twitter_account">Este é meu Twitter</string>
 	<string name="send_score"> Envie sua pontuação!</string>
-	<string name="game_won">Parabéns, sua empresa está segura! Conheça outras ferramentas do Cloud Server Pro da Locaweb! Não se esqueça de enviar sua pontuação!</string>
-	<string name="game_lost">Sua empresa foi invadida! Aproveite melhor os recursos do Cloud Server Pro para garantir segurança para suas aplicações.</string>
-	<string name="submit_hint">Nome completo</string>
+	<string name="game_won">Parabéns, sua empresa está segura! Envie sua pontuação e conheça outras ferramentas do Cloud Server Pro da Locaweb!</string>
+	<string name="game_lost">Sua empresa foi invadida! Envie sua pontuação e conheça outras ferramentas do Cloud Server Pro da Locaweb!</string>
+	<string name="submit_hint">Coloque seu nome aqui</string>
 	<string name="send">Enviar</string>
 	<string name="cancel">Cancelar</string>
 	<string name="game_over">Quantidade de vírus eliminados: </string>
